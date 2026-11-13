@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class 5.1 — One Class, One Story, Nineteen Memories</title>
+  <meta name="description" content="Website resmi kelas 5.1. Satu kelas, satu cerita, sembilan belas kenangan. Cute, minimalis, dan penuh kebersamaan." />
+  <meta name="theme-color" content="#A8D5E5" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Class 5.1 — Nineteen Memories" />
+  <meta property="og:description" content="One Class, One Story, Nineteen Memories. Website kelas 5.1 yang cute & minimalis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩵</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩵</text></svg>" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Enter Overlay (for audio unlock) -->
+  <div id="enter-overlay" class="enter-overlay">
+    <div class="enter-card">
+      <div class="enter-emoji">🩵</div>
+      <h1>Welcome to Class 5.1</h1>
+      <p>One Class • One Story • Nineteen Memories</p>
+      <button id="enter-btn" class="btn-enter">ENTER CLASS 5.1 🎵</button>
+      <p class="enter-note">Klik untuk masuk & putar musik latar</p>
+    </div>
+  </div>
+
+  <!-- Floating particles / clouds -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">Class 5.1</div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#members" class="nav-link">Anggota</a></li>
+      <li><a href="#piket" class="nav-link">Jadwal Piket</a></li>
+      <li><a href="#pelajaran" class="nav-link">Jadwal Pelajaran</a></li>
+      <li><a href="#memories" class="nav-link">Memories</a></li>
+      <li><a href="#birthday" class="nav-link">Birthday</a></li>
+    </ul>
+  </nav>
+
+  <!-- Music Control (fixed) -->
+  <div class="music-control" id="music-control">
+    <button id="play-pause-btn" class="music-btn" title="Play / Pause">▶</button>
+    <button id="mute-btn" class="music-btn" title="Mute / Unmute">🔊</button>
+    <span class="now-playing">Now Playing: Kita — Sheila On 7</span>
+  </div>
+
+  <!-- Hidden Audio -->
+  <audio id="bg-music" loop preload="metadata">
+    <source src="assets/kita.mp3" type="audio/mpeg" />
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <main>
+    <!-- ========== HOME ========== -->
+    <section id="home" class="section home-section">
+      <div class="hero">
+        <div class="hero-content">
+          <p class="welcome-label">Welcome to</p>
+          <h1 class="hero-title">Class 5.1</h1>
+          <p class="hero-slogan" id="slogan">One Class, One Story, Nineteen Memories</p>
+          
+          <div class="hero-meta">
+            <div class="live-clock">
+              <span id="clock-time">--:--:--</span>
+              <span id="clock-date">--</span>
+            </div>
+            <div class="countdown-box">
+              <p class="countdown-label">Menuju Momen Spesial</p>
+              <div id="countdown" class="countdown">
+                <div><span id="cd-days">0</span><small>hari</small></div>
+                <div><span id="cd-hours">0</span><small>jam</small></div>
+                <div><span id="cd-mins">0</span><small>mnt</small></div>
+                <div><span id="cd-secs">0</span><small>dtk</small></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-box" id="quote-box">
+            <p id="class-quote">Loading quote...</p>
+          </div>
+
+          <div class="announcement-mini" id="announcement">
+            <strong>📢 Pengumuman:</strong>
+            <span id="announcement-text">—</span>
+          </div>
+
+          <a href="#members" class="btn-primary">Explore Our Class →</a>
+        </div>
+
+        <div class="hero-visual">
+          <div class="class-photo-hero">
+            <img src="assets/foto5.jpg" alt="Class 5.1 together" class="hero-class-img" />
+            <div class="hero-photo-caption">Class 5.1 🩵</div>
+          </div>
+          <div class="class-illustration">
+            <div class="teacher-card">
+              <div class="avatar teacher-avatar">👩‍🏫</div>
+              <p class="teacher-name">Bu Siti Aisyah</p>
+              <p class="teacher-role">Wali Kelas 💛</p>
+            </div>
+            <div class="students-grid" id="hero-students">
+              <!-- 19 small avatars filled by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MEMBERS ========== -->
+    <section id="members" class="section">
+      <div class="section-header">
+        <h2>👥 19 Anggota Kelas</h2>
+        <p>Kenali teman-teman sekelas kita yang luar biasa</p>
+      </div>
+
+      <div class="members-controls">
+        <input type="search" id="search-member" placeholder="Cari nama..." class="search-input" />
+        <select id="filter-absen" class="filter-select">
+          <option value="">Semua Absen</option>
+        </select>
+      </div>
+
+      <div class="members-grid" id="members-grid">
+        <!-- Cards filled by JS -->
+      </div>
+    </section>
+
+    <!-- ========== JADWAL PIKET ========== -->
+    <section id="piket" class="section section-alt">
+      <div class="section-header">
+        <h2>🧹 Class Cleaning Schedule</h2>
+        <p>Jadwal Piket Senin – Jumat</p>
+      </div>
+
+      <div class="piket-grid" id="piket-grid">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <!-- ========== JADWAL PELAJARAN ========== -->
+    <section id="pelajaran" class="section">
+      <div class="section-header">
+        <h2>📚 Jadwal Pelajaran</h2>
+        <p>Mata pelajaran minggu ini</p>
+      </div>
+
+      <div class="pelajaran-grid" id="pelajaran-grid">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <!-- ========== MEMORIES ========== -->
+    <section id="memories" class="section section-alt">
+      <div class="section-header">
+        <h2>📸 Class Memories</h2>
+        <p>Album kenangan indah kita</p>
+      </div>
+
+      <div class="memories-categories">
+        <button class="mem-cat active" data-cat="all">Semua</button>
+        <button class="mem-cat" data-cat="first">Our First Day</button>
+        <button class="mem-cat" data-cat="activities">Class Activities</button>
+        <button class="mem-cat" data-cat="random">Random Moments</button>
+        <button class="mem-cat" data-cat="events">Special Events</button>
+        <button class="mem-cat" data-cat="bts">Behind The Scenes</button>
+      </div>
+
+      <div class="polaroid-gallery" id="polaroid-gallery">
+        <div class="polaroid" data-cat="random">
+          <div class="polaroid-img">
+            <img src="assets/foto1.jpg" alt="Class 5.1 photo 1" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Pose seru di kelas ✨</p>
+        </div>
+        <div class="polaroid" data-cat="activities">
+          <div class="polaroid-img">
+            <img src="assets/foto2.jpg" alt="Class 5.1 photo 2" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Full team vibes ✌️</p>
+        </div>
+        <div class="polaroid" data-cat="random">
+          <div class="polaroid-img">
+            <img src="assets/foto3.jpg" alt="Class 5.1 photo 3" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Momen random yang lucu 😂</p>
+        </div>
+        <div class="polaroid" data-cat="events">
+          <div class="polaroid-img">
+            <img src="assets/foto4.jpg" alt="Class 5.1 photo 4" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Foto bareng yang epik 🎉</p>
+        </div>
+        <div class="polaroid" data-cat="bts">
+          <div class="polaroid-img">
+            <img src="assets/foto5.jpg" alt="Class 5.1 photo 5" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Behind the scenes seru 🎬</p>
+        </div>
+        <div class="polaroid" data-cat="first">
+          <div class="polaroid-img">
+            <img src="assets/foto2.jpg" alt="Class 5.1 together" loading="lazy" />
+          </div>
+          <p class="polaroid-caption">Kebersamaan Class 5.1 🩵</p>
+        </div>
+      </div>
+
+      <div class="jar-memories">
+        <h3>🫙 Jar of Memories</h3>
+        <p>Klik untuk membuka pesan kenangan</p>
+        <div class="jar-container">
+          <button class="jar-btn" id="open-jar">Buka Kenangan ✨</button>
+          <div class="jar-message" id="jar-message" hidden></div>
+        </div>
+      </div>
+
+      <div class="guestbook">
+        <h3>💌 Digital Guestbook</h3>
+        <p>Tulis pesan atau kenangan untuk teman sekelas</p>
+        <form id="guestbook-form" class="guestbook-form">
+          <input type="text" id="gb-name" placeholder="Namamu" required maxlength="30" />
+          <textarea id="gb-message" placeholder="Pesan atau kenangan..." required maxlength="200"></textarea>
+          <button type="submit" class="btn-primary">Kirim Pesan</button>
+        </form>
+        <div class="guestbook-list" id="guestbook-list"></div>
+      </div>
+    </section>
+
+    <!-- ========== BIRTHDAY ========== -->
+    <section id="birthday" class="section">
+      <div class="section-header">
+        <h2>🎂 Birthday Corner</h2>
+        <p>Ulang tahun 19 anggota kelas</p>
+      </div>
+      <div class="birthday-grid" id="birthday-grid"></div>
+    </section>
+
+    <!-- ========== MOOD ========== -->
+    <section id="mood" class="section section-alt">
+      <div class="section-header">
+        <h2>😊 Mood of The Class</h2>
+        <p>Bagaimana suasana hatimu hari ini?</p>
+      </div>
+      <div class="mood-picker">
+        <button class="mood-btn" data-mood="😊">😊 Senang</button>
+        <button class="mood-btn" data-mood="🥰">🥰 Bahagia</button>
+        <button class="mood-btn" data-mood="😴">😴 Capek</button>
+        <button class="mood-btn" data-mood="😤">😤 Semangat</button>
+        <button class="mood-btn" data-mood="🥺">🥺 Sedih</button>
+        <button class="mood-btn" data-mood="🤔">🤔 Bingung</button>
+      </div>
+      <div class="mood-result" id="mood-result">
+        <p>Pilih emoji di atas untuk merekam mood kelas hari ini!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Member Modal -->
+  <div class="modal" id="member-modal" hidden>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Made with 🩵 for Class 5.1</p>
+    <p class="footer-small">One Class • One Story • Nineteen Memories</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
